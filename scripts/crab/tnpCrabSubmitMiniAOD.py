@@ -3,12 +3,12 @@ import sys
 config = config()
 
 submitVersion = "Moriond18_V1"
-doEleTree = 'doEleID=True'
-doPhoTree = 'doPhoID=True'
-#doHLTTree = 'doTrigger=False'
+doEleTree = 'doEleID=False'
+doPhoTree = 'doPhoID=False'
+doHLTTree = 'doTrigger=True'
 #calibEn   = 'useCalibEn=False'
 
-mainOutputDir = '/store/group/phys_egamma/soffi/TnP/ntuples_01162018/%s' % submitVersion
+mainOutputDir = '/store/user/capalmer/TnP/ntuples_02172018/%s' % submitVersion
 
 config.General.transferLogs = False
 
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     config.Data.outLFNDirBase = '%s/%s/' % (mainOutputDir,'mc')
     config.Data.splitting     = 'FileBased'
     config.Data.unitsPerJob   = 8
-    config.JobType.pyCfgParams  = ['isMC=True',doEleTree,doPhoTree,'GT=94X_mc2017_realistic_v10']
+    config.JobType.pyCfgParams  = ['isMC=True',doEleTree,doPhoTree,doHLTTree,'GT=94X_mc2017_realistic_v10']
 
 
     config.General.requestName  = 'DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8'
